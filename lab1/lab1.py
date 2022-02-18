@@ -37,9 +37,9 @@ gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 gray = np.reshape(gray, [gray.shape[0], gray.shape[1], 1])
 gray = np.repeat(gray, 3, axis=-1)
 
-result_image = cv2.vconcat(
-    [cv2.hconcat([image, inv_image1, inv_image2]),
-     cv2.hconcat([inv_image3, inv_image4, gray])
+result_image = cv2.hconcat(
+    [cv2.vconcat([image, inv_image1, inv_image2]),
+     cv2.vconcat([inv_image3, inv_image4, gray])
      ])
 cv2.imshow("window", result_image)
 cv2.waitKey(0)
